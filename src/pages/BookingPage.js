@@ -29,7 +29,7 @@ export class BookingPage {
         await this.finalReserveButton.click();
     }
 
-    async selectDateTomorrow() {
+    async selectThreeDays() {
         const tomorrow = new Date(Date.now() + 86400000);
         const dayPlus3 = new Date(Date.now() + 86400000 * 3);
 

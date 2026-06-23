@@ -1,14 +1,14 @@
 import { expect, test } from "@playwright/test";
 import { BookingPage } from "../../src/pages/BookingPage";
 
-import { dateTime, dateTimeTomorrow } from '../../src/helpers/dateTime.js';
+import { dateTime, dateTimeThreeDays } from '../../src/helpers/dateTime.js';
 import { bookingInvalidScenarios } from '../../src/helpers/invalidScenarios.js';
 
 test.describe('Booking page tests', () => {
-    test.describe.configure({ retries: 2 });
+    // test.describe.configure({ retries: 1 });
     let booking;
     const expectedDateRange = dateTime();
-    const expectedDateRangeTomorrow = dateTimeTomorrow();
+    const expectedThreeDays = dateTimeThreeDays();
 
     test.beforeEach(async ({ page }) => {
         booking = new BookingPage(page);
@@ -23,13 +23,13 @@ test.describe('Booking page tests', () => {
         await expect(page.getByText(expectedDateRange)).toBeVisible();
     })
 
-    test('should be able to check room reservation date for tomorrow', async ({ page }) => {
-        await booking.selectDateTomorrow();
+    test('should be able to check room reservation date for 3 days', async ({ page }) => {
+        await booking.selectThreeDays();
         await booking.bookRoom();
 
         await expect(page.getByText('Booking Confirmed')).toBeVisible();
         await expect(page.getByText('Your booking has been confirmed for the following dates:')).toBeVisible();
-        await expect(page.getByText(expectedDateRangeTomorrow)).toBeVisible();
+        await expect(page.getByText(expectedThreeDays)).toBeVisible();
     });
 
     test('should not be able to book a room with invalid input and show correct validation messages', async ({ page }) => {
