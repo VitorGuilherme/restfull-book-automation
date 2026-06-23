@@ -1,7 +1,7 @@
 import { expect, test } from "@playwright/test";
 import { BookingPage } from "../../src/pages/BookingPage";
 
-import { dateTime, dateTimeTomorrow } from '../../src/helpers/datetime.js';
+import { dateTime, dateTimeTomorrow } from '../../src/helpers/dateTime.js';
 import { bookingInvalidScenarios } from '../../src/helpers/invalidScenarios.js';
 
 test.describe('Booking page tests', () => {
