@@ -12,7 +12,7 @@ export class BookingPage {
     }
 
     async navigate() {
-        await this.page.goto('https://automationintesting.online/reservation/1?checkin=2026-06-23&checkout=2026-06-24');
+        await this.page.goto('/reservation/1?checkin=2026-06-23&checkout=2026-06-24');
     }
 
     async bookRoom() {

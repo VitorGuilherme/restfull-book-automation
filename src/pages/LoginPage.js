@@ -7,7 +7,7 @@ export class LoginPage {
     }
 
     async navigate() {
-        await this.page.goto('https://automationintesting.online/admin');
+        await this.page.goto('/admin');
     }
 
     async login(username, password) {

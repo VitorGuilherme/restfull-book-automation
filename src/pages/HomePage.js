@@ -15,7 +15,7 @@ export class HomePage {
     }
 
     async navigate() {
-        await this.page.goto('https://automationintesting.online/');
+        await this.page.goto('/');
     }
 
     async selectFutureDate() {
